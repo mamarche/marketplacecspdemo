@@ -1,6 +1,6 @@
 ﻿using MarketplaceCSPDemo.Core.Interfaces;
-using MarketplaceCSPDemo.Core.Models;
 using MarketplaceCSPDemo.Data.PartnerCenter.Context;
+using Microsoft.Store.PartnerCenter.Models.Offers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,22 +20,9 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Repository
 
         public IEnumerable<Offer> GetByCountry(string country)
         {
-           var _offers = _context.aggregatePartner.Offers.ByCountry(country).Get();
-           
-           
-            List<Offer> _ret = new List<Offer>();
-            foreach(var item in _offers.Items)
-            {
-                _ret.Add(new Offer { 
-                    Id=item.Id,
-                    Description=item.Description,
-                    Name = item.Name
-                });
-            }
+            var _offers = _context.aggregatePartner.Offers.ByCountry(country).Get();
 
-            return _ret;
-
-           
+            return _offers.Items;
         }
     }
 }

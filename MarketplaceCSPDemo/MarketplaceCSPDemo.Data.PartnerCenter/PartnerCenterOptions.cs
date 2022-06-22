@@ -8,8 +8,8 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter
 {
     public class PartnerCenterOptions
     {
-        public string ClientId { get; set; }
-        public string ClientSecret { get; set; }
-        public string AppDomain { get; set; }
+        public string ?ClientId { get; set; }
+        public string ?ClientSecret { get; set; }
+        public string ?AppDomain { get; set; }
     }
 }

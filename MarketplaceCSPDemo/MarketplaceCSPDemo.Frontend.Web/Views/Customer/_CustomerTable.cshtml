@@ -1,4 +1,4 @@
-﻿@using MarketplaceCSPDemo.Core.Models
+﻿@using Microsoft.Store.PartnerCenter.Models.Customers
 @model IEnumerable<Customer>
 @{
     Layout = null;
@@ -15,7 +15,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Name</td>
+                <td>@item?.CompanyProfile?.CompanyName</td>
             </tr>
         }
     </tbody>

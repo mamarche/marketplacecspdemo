@@ -1,6 +1,7 @@
 ﻿using MarketplaceCSPDemo.Core.Interfaces;
-using MarketplaceCSPDemo.Core.Models;
 using MarketplaceCSPDemo.Data.PartnerCenter.Context;
+using MarketplaceCSPDemo.Data.PartnerCenter.Interfaces;
+using Microsoft.Store.PartnerCenter.Models.Customers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,18 +31,7 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Repository
         {
             var _customers = _context.aggregatePartner.Customers.Get();
 
-
-            List<Customer> _ret = new List<Customer>();
-            foreach (var item in _customers.Items)
-            {
-                _ret.Add(new Customer
-                {
-                    Id = item.Id,
-                    Name = item.CompanyProfile.CompanyName
-                });
-            }
-
-            return _ret;
+            return _customers.Items;
         }
     }
 }
