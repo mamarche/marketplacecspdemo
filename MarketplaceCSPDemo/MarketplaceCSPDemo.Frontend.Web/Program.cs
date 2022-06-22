@@ -1,12 +1,15 @@
 using MarketplaceCSPDemo.Core.Interfaces;
 using MarketplaceCSPDemo.Core.Models;
+using MarketplaceCSPDemo.Data.PartnerCenter;
 using MarketplaceCSPDemo.Data.PartnerCenter.Context;
 using MarketplaceCSPDemo.Data.PartnerCenter.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<PartnerCenterOptions>(configuration.GetSection(nameof(PartnerCenterOptions)));
 
 builder.Services.AddScoped<ICustomerRepository, CustomerPCRepository>();
 builder.Services.AddScoped<IOfferRepository, OfferPCRepository>();
