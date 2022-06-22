@@ -1,0 +1,38 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+/* Magnific Popup Customization */
+.mfp-content {
+    margin: auto;
+    background-color: white;
+    padding: 2%;
+}
+
+.magnificpopup-container {
+    max-width: 50%;
+    margin: auto;
+    background-color: white;
+    padding: 2%;
+}
+
+.mfp-wrap.mfp-xs .mfp-content {
+    width: 400px;
+    max-width: 90vw;
+}

@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="row align-items-end">
+   
+    <div class="col-md-1 offset-11">
+        <button type="button" class="btn btn-outline-success btn-xs" onclick="DCMS.Customer.GetAll('#home_index_customerContainer');">
+            Refresh
+        </button>
+    </div>
+</div>
+<hr />
+<div id="home_index_customerContainer">
+</div>
+
+@section Scripts{
+    <script>
+        $(function() {
+            DCMS.Customer.GetAll('#home_index_customerContainer');
+        })
+    </script>
+}

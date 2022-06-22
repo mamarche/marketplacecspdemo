@@ -1,0 +1,28 @@
+﻿@using MarketplaceCSPDemo.Core.Models
+@model IEnumerable<Customer>
+@{
+    Layout = null;
+}
+
+<table class="table" id="tbl-customer">
+    <thead>
+        <tr>
+            <th>Name</th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+$(function() { 
+    $("#tbl-customer").DataTable();
+})
+</script>

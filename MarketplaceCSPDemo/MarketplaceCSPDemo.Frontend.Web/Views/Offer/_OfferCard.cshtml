@@ -1,0 +1,12 @@
+﻿@model MarketplaceCSPDemo.Core.Models.Offer
+
+
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="@Model.Img" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">@Html.DisplayFor(model => model.Name)</h5>
+    <p class="card-text">@Html.DisplayFor(model => model.Description)</p>
+    <a href="#" class="btn btn-primary">Add to Cart&nbsp;<span class="fa fa-cart"></span></a>
+  </div>
+</div>

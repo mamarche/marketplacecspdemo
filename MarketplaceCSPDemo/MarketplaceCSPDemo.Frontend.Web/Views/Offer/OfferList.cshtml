@@ -1,0 +1,32 @@
+﻿@using MarketplaceCSPDemo.Core.Models
+@model IEnumerable<Offer>
+@{
+    Layout = null;
+}
+<table class="table" id="tbl-offer">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            string btnId = "btn-addToCart" + @item.Id;
+
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td><button id="@btnId" class="btn btn-outline-primary btn-xs" onclick="DCMS.Customer.Create('#@btnId','@item.Id')"><span class="fa fa-cart"></span>&nbsp;Add To Cart</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $(function() {
+        $('#tbl-offer').DataTable();
+    })
+</script>

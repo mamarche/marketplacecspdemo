@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row align-items-end">
+    <div class="col-md-1">
+        <label>Country</label>
+        <select id="country" class="form-control" onchange="DCMS.Offer.GetOfferByCountry('#home_index_offerContainer','#country')">
+            <option value="it">IT</option>
+            <option value="us">US</option>
+        </select>
+    </div>
+    <div class="col-md-1 offset-10">
+        <button type="button" class="btn btn-outline-success btn-xs" onclick="DCMS.Offer.GetOfferByCountry('#home_index_offerContainer', '#country');">
+            Refresh
+        </button>
+    </div>
+</div>
+<hr />
+<div id="home_index_offerContainer">
+</div>
+
+@section Scripts{
+    <script>
+        $(function() {
+            DCMS.Offer.GetOfferByCountry('#home_index_offerContainer', '#country');
+        })
+    </script>
+}
