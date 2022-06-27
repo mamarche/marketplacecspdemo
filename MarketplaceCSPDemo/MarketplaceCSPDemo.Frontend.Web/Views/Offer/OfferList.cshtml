@@ -22,7 +22,7 @@
                 <td>@item.Description</td>
                 <td>
                     <button id="@btnId" class="btn btn-outline-primary btn-xs" onclick="DCMS.Order.Create('#@btnId','@item.Id','@item.Name')"><span class="fa fa-cart"></span>&nbsp;Buy</button>
-                    <button id="@btnCreateCustomerId" class="btn btn-outline-primary btn-xs invisible" onclick="DCMS.Order.Create('#@btnId','@item.Id','@item.Name')"><span class="fa fa-cart"></span>&nbsp;Create Customer</button>
+                    <button id="@btnCreateCustomerId" class="btn btn-outline-primary btn-xs" onclick="DCMS.Customer.Create('#@btnCreateCustomerId','@item.Id','@item.Name')"><span class="fa fa-cart"></span>&nbsp;Create Customer</button>
                 </td>
             </tr>
         }
