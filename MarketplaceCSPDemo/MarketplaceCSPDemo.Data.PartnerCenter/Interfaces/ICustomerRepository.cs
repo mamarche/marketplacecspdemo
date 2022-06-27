@@ -11,5 +11,7 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Interfaces
     {
         public IEnumerable<Customer> GetAll();
         public bool DomainExist(string domainPrefix);
+
+        public Customer Create(Customer customer);
     }
 }

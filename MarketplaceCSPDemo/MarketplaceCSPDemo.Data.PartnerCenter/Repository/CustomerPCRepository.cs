@@ -18,10 +18,23 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Repository
             _context = context;
         }
 
+        public Customer Create(Customer customer)
+        {
+            //Check always domain before create
+            var _domainExist = DomainExist(customer.CompanyProfile.Domain);
+            if (_domainExist)
+                throw new Exception("Domain not valid");
+
+                customer.CompanyProfile.Domain = DomainPreValidation(customer.CompanyProfile.Domain);
+                //customer =  _context.aggregatePartner.Customers.Create(customer);
+                
+                return customer;
+         
+        }
+
         public bool DomainExist(string domainPrefix)
         {
-            if (!domainPrefix.EndsWith(".onmicrosoft.com"))
-                domainPrefix = domainPrefix + ".onmicrosoft.com";
+            domainPrefix = DomainPreValidation(domainPrefix);
 
             var _exists = _context.aggregatePartner.Domains.ByDomain(domainPrefix).Exists();
             return _exists;
@@ -32,6 +45,17 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Repository
             var _customers = _context.aggregatePartner.Customers.Get();
 
             return _customers.Items;
+        }
+
+        private string DomainPreValidation(string domainPrefix)
+        {
+            if (String.IsNullOrEmpty(domainPrefix))
+                return domainPrefix;
+
+            if (!domainPrefix.EndsWith(".onmicrosoft.com"))
+                domainPrefix = domainPrefix + ".onmicrosoft.com";
+
+            return domainPrefix;
         }
     }
 }

@@ -3,6 +3,9 @@
 *@
 @{
     Layout = null;
+    string offerId = ViewBag.OfferId;
+    string offerName = ViewBag.OfferName;
+
 }
 
 <div class="card">
@@ -11,41 +14,115 @@
     </div>
     <div class="card-body">
         <form id="customer-create">
+            <input type="hidden" name="offerid" value="@offerId" />
+            <input type="hidden" name="offername" value="@offerName" />
             <div class="form-group row mb-1">
                 <label for="companyName" class="col-sm-2 col-form-label">Company Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="companyName">
+                    <input type="text" class="form-control" name="companyname" id="companyName" value="Test MS">
                 </div>
             </div>
             <div class="form-group row mb-1">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="email">
+                    <input type="text" class="form-control" name="email" id="email" value="dcavaliere@Microsoft.com">
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="culture" class="col-sm-2 col-form-label">Culture</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="culture" id="culture" readonly value="en-US">
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="language" class="col-sm-2 col-form-label">Language</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="language" id="Language" readonly value="en">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Domain</label>
                 <div class="col-sm-10">
                     <div class="input-group mb-2 mr-sm-2">
-                        <input type="text" class="form-control" id="domain">
+                        <input type="text" class="form-control" name="domain" id="domain">
                         <div class="input-group-prepend">
                             <div class="input-group-text" id="create-customer-domain-prepend">.onmicrosoft.com</div>
 
                         </div>
                     </div>
-                    <div class="text-muted" id="create-customer-check-domain-result">
-
-                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="firstname" id="firstname" value="Test MS">
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="lastname" id="lastname" value="Sandbox">
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="addressline1" class="col-sm-2 col-form-label">Address Line 1</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="addressline1" id="addressline1">
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="city" class="col-sm-2 col-form-label">City</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="city" id="city">
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="state" class="col-sm-2 col-form-label">State</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="state" id="state">
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="country" class="col-sm-2 col-form-label">Country</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="country" id="country">
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="postalcode" class="col-sm-2 col-form-label">Postal Code</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="postalcode" id="postalcode">
                 </div>
             </div>
         </form>
+        <div class="row">
+            <div class="col-6">
+                <div class="text-muted">
+                    <span id="create-customer-check-domain-result">
+
+                    </span>
+                </div>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-xs btn-outline-success float-end" id="create-customer-btn-create" onclick="DCMS.Customer.Create_Save('#create-customer-btn-create')">
+                    Create
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="create-customer-create-result">
+                </div>
+            </div>
+        </div>
+
     </div>
-<script>
-$("#customer-create #domain").keyup(function() { 
-    delay(function() { 
-        DCMS.Customer.CheckDomain('#create-customer-domain-prepend','#create-customer-check-domain-result')
-    },250)
-})
-</script>
+    <script>
+        $("#customer-create #domain").keyup(function() {
+            delay(function() {
+                DCMS.Customer.CheckDomain('#create-customer-check-domain-loading', '#create-customer-check-domain-result')
+            }, 500)
+        })
+    </script>
 </div>
 
