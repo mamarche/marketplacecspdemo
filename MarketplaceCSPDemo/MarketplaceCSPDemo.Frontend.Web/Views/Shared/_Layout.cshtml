@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - StoreFront</title>
+    <title>MarketPlaceCSPDemo</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
             <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" asp-append-version="true" />
     
@@ -31,6 +31,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Offer" asp-action="Index">Offers</a>
+                        </li>
+                           <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Index">Order</a>
                         </li>
                      </ul>
                 </div>
@@ -61,6 +67,7 @@
     <script src="~/js/entity/customer.js" asp-append-version="true"></script>
     <script src="~/js/entity/offer.js" asp-append-version="true"></script>
     <script src="~/js/entity/order.js" asp-append-version="true"></script>
+    <script src="~/js/entity/product.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

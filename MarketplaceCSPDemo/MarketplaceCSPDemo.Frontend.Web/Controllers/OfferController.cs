@@ -22,7 +22,13 @@ namespace MarketplaceCSPDemo.Frontend.Web.Controllers
         {
             var _offers = _offerRepository.GetByCountry(country);
 
-            return View("OfferList",_offers);
+            return View("_OfferTable",_offers);
+        }
+
+        public IActionResult Get(string offerId,string country,bool isAddon)
+        {
+            var _offer = _offerRepository.GetOffer(offerId, country, isAddon);
+            return Json(_offer);
         }
     }
 }

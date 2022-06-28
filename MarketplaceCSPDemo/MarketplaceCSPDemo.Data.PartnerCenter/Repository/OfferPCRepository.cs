@@ -24,5 +24,13 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Repository
 
             return _offers.Items;
         }
+
+        public Offer GetOffer(string offerId, string country,bool isAddon)
+        {
+            var _offer = _context.aggregatePartner.Offers.ByCountry(country).ById(offerId).Get();
+
+            return _offer;
+
+        }
     }
 }

@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="row align-items-end">
+     <div class="col-1">
+        <label>Country</label>
+        <select id="country" class="form-control" onchange="DCMS.Offer.GetOfferByCountry('#home_index_offerContainer','#country')">
+            <option value="it">IT</option>
+            <option value="us">US</option>
+        </select>
+    </div>
+     <div class="col-2">
+        <label>Target</label>
+        <select id="target" class="form-control" onchange="DCMS.Offer.GetOfferByCountry('#home_index_offerContainer','#country')">
+            <option value="Azure">Azure</option>
+            <option value="MarketPlaceSaas" selected>MarketPlaceSaas</option>
+            <option value="SpecializedOffers">SpecializedOffers</option>
+        </select>
+    </div>
+     <div class="col-2">
+        <label>Segment</label>
+        <select id="segment" class="form-control" onchange="DCMS.Offer.GetOfferByCountry('#home_index_offerContainer','#country')">
+            <option value="commercial">Commercial</option>
+            <option value="education">Education</option>
+            <option value="government">Government</option>
+            <option value="nonprofit">NonProfit</option>
+        </select>
+    </div>
+    <div class="col-md-1 offset-11">
+        <button type="button" class="btn btn-outline-success btn-xs" onclick="DCMS.Product.GetProductByTargetAndSegment('#product_index_productContainer','#product_index_productContainer',$('#country').val(),$('#target').val(),$('#segment').val())">
+            Refresh
+        </button>
+    </div>
+</div>
+<hr />
+<div id="product_index_productContainer">
+</div>
+
+@section Scripts{
+    <script>
+        $(function() {
+            DCMS.Product.GetProductByTargetAndSegment('#product_index_productContainer','#product_index_productContainer',$('#country').val(),$('#target').val(),$('#segment').val());
+        })
+    </script>
+}

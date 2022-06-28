@@ -10,5 +10,6 @@ namespace MarketplaceCSPDemo.Core.Interfaces
     public interface IOfferRepository
     {
         public IEnumerable<Offer> GetByCountry(string country);
+        public Offer GetOffer(string offerId,string country, bool isAddon);
     }
 }

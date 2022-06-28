@@ -13,6 +13,8 @@ builder.Services.Configure<PartnerCenterOptions>(configuration.GetSection(nameof
 
 builder.Services.AddScoped<ICustomerRepository, CustomerPCRepository>();
 builder.Services.AddScoped<IOfferRepository, OfferPCRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderPCRepository>();
+builder.Services.AddScoped<IProductRepository, ProductPCRepository>();
 builder.Services.AddScoped<PartnerCenterContext>();
 
 var app = builder.Build();

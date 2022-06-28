@@ -18,5 +18,13 @@
                 $(resultContainer).html(data.responseText);
             })
     };
+    ns.GetOffer = (resultContainer, country, offerId, isAddon) => {
+        $(resultContainer).LoadingOverlay("show");
+
+        $.get(global_root + "Offer/Get", { country: country, offerId: offerId, isAddon: isAddon }, function (data) {
+            console.log(data);
+
+        });
+    }
 
 })(DCMS.Offer)
