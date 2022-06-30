@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceCSPDemo.Data.Par
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketplaceCSPDemo.Test.ConsoleApp", "MarketplaceCSPDemo.Test.ConsoleApp\MarketplaceCSPDemo.Test.ConsoleApp.csproj", "{3DD2FE2A-F777-437C-8247-942CF5D1FC39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceCSPDemo.Frontend.Customer", "MarketplaceCSPDemo.Frontend.Customer\MarketplaceCSPDemo.Frontend.Customer.csproj", "{52ACC97B-1D52-487F-9768-364385976362}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3DD2FE2A-F777-437C-8247-942CF5D1FC39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DD2FE2A-F777-437C-8247-942CF5D1FC39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DD2FE2A-F777-437C-8247-942CF5D1FC39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52ACC97B-1D52-487F-9768-364385976362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52ACC97B-1D52-487F-9768-364385976362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52ACC97B-1D52-487F-9768-364385976362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52ACC97B-1D52-487F-9768-364385976362}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

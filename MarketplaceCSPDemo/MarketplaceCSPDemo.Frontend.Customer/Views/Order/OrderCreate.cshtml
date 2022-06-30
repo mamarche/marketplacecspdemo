@@ -1,0 +1,68 @@
+﻿@using Microsoft.Store.PartnerCenter.Models.Orders
+@using Microsoft.Store.PartnerCenter.Models.Customers
+@model Order
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@{
+    Layout = null;
+    var _customers = ((List<Customer>)ViewBag.customers);
+    var _btnOfferId = "#btn-createCustomer" + ViewBag.offerId;
+}
+
+<div class="card">
+    <div class="card-header">
+        Create New Order
+    </div>
+    <div class="card-body">
+        <form id="frmOrder">
+            <div class="form-group row mb-1">
+                <label for="customer" class="col-sm-2 col-form-label">Customer</label>
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(m=>m.ReferenceCustomerId,_customers.Select(m=>new SelectListItem{ Text=m.CompanyProfile.CompanyName,Value=m.Id}).OrderBy(m=>m.Text),new {@class="form-control" })
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="customer" class="col-sm-2 col-form-label">Offer</label>
+                <div class="col-sm-10">
+                    <input type="text" value="@ViewBag.offerName" class="form-control" />
+                    <input type="hidden" name="offerid" value="@ViewBag.offerId" />
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="customer" class="col-sm-2 col-form-label">Quantity</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="quantity" name="quantity" />
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label for="customer" class="col-sm-2 col-form-label">Billing Cycle</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="billingcycle" name="billingcycle">
+                        <option value="monthly">Monthly</option>
+                        <option value="annual">Annual</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-outline-success float-end" onclick="DCMS.Order.Create_Save('#frmOrder','#frmOrder')">
+                    Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+    @* Leave this script inside div because this partial is called via magnific popup *@
+    <script>
+$(function() { 
+    //If you want offer details
+    //$.get(global_root + "Offer/Get", { offerId: '@ViewBag.offerId',country:'it',isAddon:false }, function(data) { 
+    //    console.log(data);
+    //})
+
+})
+    </script>
+</div>

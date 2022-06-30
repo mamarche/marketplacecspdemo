@@ -1,0 +1,27 @@
+﻿@using Microsoft.Store.PartnerCenter.Models.Orders
+@model IEnumerable<Order>
+@{
+    Layout = null;
+}
+
+<table class="table" id="tbl-order">
+    <thead>
+        <tr>
+            <th>Contents</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(string.Join(" - ",item.LineItems.Select(m=>m.FriendlyName)))</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+$(function() { 
+    $("#tbl-order").DataTable();
+})
+</script>

@@ -1,10 +1,11 @@
-﻿using MarketplaceCSPDemo.Core.Interfaces;
-using MarketplaceCSPDemo.Data.PartnerCenter.Interfaces;
+﻿using MarketplaceCSPDemo.Data.PartnerCenter.Interfaces;
 using MarketplaceCSPDemo.Frontend.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketplaceCSPDemo.Frontend.Web.Controllers
 {
+   
     public class CustomerController : Controller
     {
         private readonly ICustomerRepository _customerRepository;

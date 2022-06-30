@@ -1,6 +1,7 @@
 ﻿using MarketplaceCSPDemo.Data.PartnerCenter.Context;
 using MarketplaceCSPDemo.Data.PartnerCenter.Interfaces;
 using Microsoft.Store.PartnerCenter.Models.Agreements;
+using Microsoft.Store.PartnerCenter.Models.Carts;
 using Microsoft.Store.PartnerCenter.Models.Orders;
 using System;
 using System.Collections.Generic;
@@ -19,33 +20,22 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Repository
         }
         public Order CreateOrder(Order order)
         {
+            
 
-            var _result = _context.aggregatePartner.Customers.ById(order.ReferenceCustomerId).Orders.Create(order);
-            return _result;
+            Cart _cart = new Cart();
+            _cart.LineItems = order.LineItems.Select(m => new CartLineItem {Id=0, CatalogItemId = m.OfferId,BillingCycle = Microsoft.Store.PartnerCenter.Models.Products.BillingCycleType.None });
+
+            var _resultCart = _context.aggregatePartner.Customers.ById(order.ReferenceCustomerId).Carts.Create(_cart);
+
+
+
+            // var _result = _context.aggregatePartner.Customers.ById(order.ReferenceCustomerId).Orders.Create(order);
+            return new Order(); //temp response
         }
 
         public IEnumerable<Order> GetByCustomerId(string customerId)
         {
-            string agreementType = "MicrosoftCustomerAgreement";
-
-            var microsoftCustomerAgreementDetails = _context.aggregatePartner.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
-
-            // string selectedCustomerId;
-
-            var agreementToCreate = new Agreement
-            {
-                DateAgreed = DateTime.UtcNow,
-                TemplateId = microsoftCustomerAgreementDetails.TemplateId,
-                PrimaryContact = new Contact
-                {
-                    FirstName = "Test",
-                    LastName = "MS",
-                    Email = "someone@example.com",
-                    PhoneNumber = "1234567890"
-                }
-            };
-
-            //Agreement agreement = _context.aggregatePartner.Customers.ById(customerId).Agreements.Create(agreementToCreate);
+            
 
             var _customers = _context.aggregatePartner.Customers.Get();
             var _orders = _context.aggregatePartner.Customers.ById(customerId).Orders.Get().Items.ToList();

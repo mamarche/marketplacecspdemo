@@ -1,6 +1,6 @@
-﻿using MarketplaceCSPDemo.Core.Interfaces;
-using MarketplaceCSPDemo.Data.PartnerCenter.Context;
+﻿using MarketplaceCSPDemo.Data.PartnerCenter.Context;
 using MarketplaceCSPDemo.Data.PartnerCenter.Interfaces;
+using Microsoft.Store.PartnerCenter.Models.Agreements;
 using Microsoft.Store.PartnerCenter.Models.Customers;
 using System;
 using System.Collections.Generic;
@@ -30,6 +30,31 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Repository
                 
                 return customer;
          
+        }
+
+        public Agreement CreateCustomerAgreement(string customerId)
+        {
+            string agreementType = "MicrosoftCustomerAgreement";
+
+            var microsoftCustomerAgreementDetails = _context.aggregatePartner.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
+
+            // string selectedCustomerId;
+
+            var agreementToCreate = new Agreement
+            {
+                DateAgreed = DateTime.UtcNow,
+                TemplateId = microsoftCustomerAgreementDetails.TemplateId,
+                PrimaryContact = new Contact
+                {
+                    FirstName = "Test",
+                    LastName = "MS",
+                    Email = "someone@example.com",
+                    PhoneNumber = "1234567890"
+                }
+            };
+
+            Agreement agreement = _context.aggregatePartner.Customers.ById(customerId).Agreements.Create(agreementToCreate);
+            return agreement;
         }
 
         public bool DomainExist(string domainPrefix)

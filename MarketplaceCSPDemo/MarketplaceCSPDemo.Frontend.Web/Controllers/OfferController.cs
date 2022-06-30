@@ -1,8 +1,10 @@
-﻿using MarketplaceCSPDemo.Core.Interfaces;
+﻿using MarketplaceCSPDemo.Data.PartnerCenter.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketplaceCSPDemo.Frontend.Web.Controllers
 {
+  
     public class OfferController : Controller
     {
 

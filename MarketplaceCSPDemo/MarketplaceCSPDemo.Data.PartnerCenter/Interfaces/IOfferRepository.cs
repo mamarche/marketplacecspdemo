@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketplaceCSPDemo.Core.Interfaces
+namespace MarketplaceCSPDemo.Data.PartnerCenter.Interfaces
 {
     public interface IOfferRepository
     {

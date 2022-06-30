@@ -1,11 +1,13 @@
 ﻿using MarketplaceCSPDemo.Data.PartnerCenter.Interfaces;
 using MarketplaceCSPDemo.Frontend.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Store.PartnerCenter.Models.Offers;
 using Microsoft.Store.PartnerCenter.Models.Orders;
 
 namespace MarketplaceCSPDemo.Frontend.Web.Controllers
 {
+    
     public class OrderController : Controller
     {
         private readonly ICustomerRepository _customerRepository;

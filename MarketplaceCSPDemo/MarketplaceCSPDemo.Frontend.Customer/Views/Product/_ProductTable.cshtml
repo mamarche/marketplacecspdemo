@@ -1,0 +1,31 @@
+﻿@using Microsoft.Store.PartnerCenter.Models.Products
+@model IEnumerable<Product>
+@{
+    Layout = null;
+}
+
+<table class="table" id="tbl-product">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th></th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            string btnId = "btn-addToCart" + @item.Id;
+            <tr>
+                <td>@item.Title</td>
+                <td><button id="@btnId" class="btn btn-outline-primary btn-xs" onclick="DCMS.Order.Create('#@btnId','@item.Id','@item.Title')"><span class="fa fa-cart"></span>&nbsp;Buy</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+$(function() { 
+    $("#tbl-product").DataTable();
+})
+</script>

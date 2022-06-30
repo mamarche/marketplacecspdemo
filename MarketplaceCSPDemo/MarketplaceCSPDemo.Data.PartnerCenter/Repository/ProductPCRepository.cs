@@ -20,7 +20,9 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Repository
 
         public IEnumerable<Product> GetOrderByTargetAndSegment(string country,string target, string segment)
         {
-            IEnumerable<Product> _products = null;
+            IEnumerable<Product>? _products = null;
+
+          
 
             if(string.IsNullOrEmpty(target) && string.IsNullOrEmpty(segment))
                 _products = _context.aggregatePartner.Products.ByCountry(country).ByTargetView(target).ByTargetSegment(segment).Get().Items;

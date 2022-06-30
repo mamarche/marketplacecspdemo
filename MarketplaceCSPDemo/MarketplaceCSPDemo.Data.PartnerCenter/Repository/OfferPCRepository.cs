@@ -1,5 +1,5 @@
-﻿using MarketplaceCSPDemo.Core.Interfaces;
-using MarketplaceCSPDemo.Data.PartnerCenter.Context;
+﻿using MarketplaceCSPDemo.Data.PartnerCenter.Context;
+using MarketplaceCSPDemo.Data.PartnerCenter.Interfaces;
 using Microsoft.Store.PartnerCenter.Models.Offers;
 using System;
 using System.Collections.Generic;
