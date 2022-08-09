@@ -5,13 +5,13 @@
 
 
 ((ns) => {
-    ns.Create = (loadingContainer, offerId,offerName) => {
+    ns.Create = (loadingContainer, offerId,offerName,offerFinalPrice) => {
         $(loadingContainer).LoadingOverlay("show");
 
         $.magnificPopup.open({
             items: {
                 type: 'ajax',
-                src: global_root + "Order/OrderCreate?offerId=" + offerId + "&offerName=" + offerName
+                src: global_root + "Order/OrderCreate?offerId=" + offerId + "&offerName=" + offerName + "&offerFinalPrice=" + offerFinalPrice
             },
             callbacks: {
                 open: function () {

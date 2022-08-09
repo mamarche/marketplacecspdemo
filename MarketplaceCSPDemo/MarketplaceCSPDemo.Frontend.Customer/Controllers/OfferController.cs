@@ -1,4 +1,5 @@
-﻿using MarketplaceCSPDemo.Data.PartnerCenter.Interfaces;
+﻿using MarketplaceCSPDemo.Data.Mock;
+using MarketplaceCSPDemo.Data.PartnerCenter.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketplaceCSPDemo.Frontend.Customer.Controllers
@@ -20,7 +21,7 @@ namespace MarketplaceCSPDemo.Frontend.Customer.Controllers
 
         public IActionResult GetOffersByCountry(string country)
         {
-            var _offers = _offerRepository.GetByCountry(country);
+            var _offers =  MarketplaceBackoffice.GetOffersByCountry(_offerRepository, country);
 
             return View("_OfferTable",_offers);
         }

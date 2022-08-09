@@ -25,14 +25,12 @@ namespace MarketplaceCSPDemo.Frontend.Customer.Controllers
             return View("OrderIndex");
         }
 
-        public IActionResult OrderCreate(string offerId,string offerName)
+        public IActionResult OrderCreate(string offerId, string offerName, string offerFinalPrice)
         {
-            //Get all customer to avoid customer creation
-            var _customers = _customerRepository.GetAll();
-            ViewBag.customers = _customers;
+            
             ViewBag.offerId = offerId;
             ViewBag.offerName = offerName;
-
+            ViewBag.offerFinalPrice = offerFinalPrice;
 
             Order _ret = new Order
             {
@@ -51,6 +49,8 @@ namespace MarketplaceCSPDemo.Frontend.Customer.Controllers
         [HttpPost]
         public IActionResult OrderCreateSave(OrderDTO order)
         {
+            //TODO: Save order to the actual back office
+
             Order _order = new Order
             {
                 ReferenceCustomerId = order.ReferenceCustomerId,

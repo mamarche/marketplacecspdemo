@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MarketplaceCSPDemo.Data.Mock\MarketplaceCSPDemo.Data.Mock.csproj" />
     <ProjectReference Include="..\MarketplaceCSPDemo.Data.PartnerCenter\MarketplaceCSPDemo.Data.PartnerCenter.csproj" />
   </ItemGroup>
 
