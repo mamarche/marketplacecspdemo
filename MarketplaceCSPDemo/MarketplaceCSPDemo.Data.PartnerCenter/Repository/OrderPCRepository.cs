@@ -20,12 +20,6 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Repository
         }
         public Order CreateOrder(Order order)
         {
-            
-
-            //Cart _cart = new Cart();
-            //_cart.LineItems = order.LineItems.Select(m => new CartLineItem {Id=0, CatalogItemId = m.OfferId,BillingCycle = Microsoft.Store.PartnerCenter.Models.Products.BillingCycleType.None });
-
-            //var _resultCart = _context.aggregatePartner.Customers.ById(order.ReferenceCustomerId).Carts.Create(_cart);
 
             var _result = _context.aggregatePartner.Customers.ById(order.ReferenceCustomerId).Orders.Create(order);
             return _result;
