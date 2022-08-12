@@ -32,10 +32,7 @@ namespace MarketplaceCSPDemo.Frontend.Customer.Controllers
             ViewBag.offerName = offerName;
             ViewBag.offerFinalPrice = offerFinalPrice;
 
-            Order _ret = new Order
-            {
-                ReferenceCustomerId = _configuration.GetSection("DemoCustomerId").Value
-            };
+            Order _ret = new Order();
 
             return View(_ret);
         }
@@ -51,6 +48,11 @@ namespace MarketplaceCSPDemo.Frontend.Customer.Controllers
         {
             //TODO: Save order to the actual back office
 
+            //Use demo customer
+            //TODO: Get the real customer id from back office
+            order.ReferenceCustomerId = _configuration.GetSection("DemoCustomerId").Value;
+
+            //Create the order in Marketpalce
             Order _order = new Order
             {
                 ReferenceCustomerId = order.ReferenceCustomerId,

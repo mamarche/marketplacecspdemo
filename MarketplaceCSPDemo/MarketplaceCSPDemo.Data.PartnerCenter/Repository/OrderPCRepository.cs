@@ -22,29 +22,20 @@ namespace MarketplaceCSPDemo.Data.PartnerCenter.Repository
         {
             
 
-            Cart _cart = new Cart();
-            _cart.LineItems = order.LineItems.Select(m => new CartLineItem {Id=0, CatalogItemId = m.OfferId,BillingCycle = Microsoft.Store.PartnerCenter.Models.Products.BillingCycleType.None });
+            //Cart _cart = new Cart();
+            //_cart.LineItems = order.LineItems.Select(m => new CartLineItem {Id=0, CatalogItemId = m.OfferId,BillingCycle = Microsoft.Store.PartnerCenter.Models.Products.BillingCycleType.None });
 
-            var _resultCart = _context.aggregatePartner.Customers.ById(order.ReferenceCustomerId).Carts.Create(_cart);
+            //var _resultCart = _context.aggregatePartner.Customers.ById(order.ReferenceCustomerId).Carts.Create(_cart);
 
-
-
-            // var _result = _context.aggregatePartner.Customers.ById(order.ReferenceCustomerId).Orders.Create(order);
-            return new Order(); //temp response
+            var _result = _context.aggregatePartner.Customers.ById(order.ReferenceCustomerId).Orders.Create(order);
+            return _result;
         }
 
         public IEnumerable<Order> GetByCustomerId(string customerId)
         {
-            
 
             var _customers = _context.aggregatePartner.Customers.Get();
             var _orders = _context.aggregatePartner.Customers.ById(customerId).Orders.Get().Items.ToList();
-            //foreach (var item in _customers.Items)
-            //{
-            //    _orders.AddRange(_context.aggregatePartner.Customers.ById(item.Id).Orders.Get().Items);
-            //}
-
-
 
             return _orders;
         }
